@@ -16,6 +16,10 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/auth', authRouter);
+app.use('/api/products',require('./routes/product.route.js'));
+app.use('/api/orders', require('./routes/order.route.js'));
+app.use('/api/payments',require('./routes/payment.route.js'));
+app.use('/api/analytics', require('./routes/analytics.route.js'));
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
