@@ -1,9 +1,10 @@
 import nodemailer from 'nodemailer';
-const sendEmail = async ({ to, subject, message }) => {
-  const transporter = nodemailer.createTransporter({
+const sendEmail = async (to, subject, message) => {
+  // Corrected method name to createTransport
+  const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
-    secure: false,
+    secure: false, // Set to true if using port 465
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
